@@ -1,0 +1,24 @@
+ @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+
+ /* Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .w-375 {
+      width: 375px;
+    }
+  }
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+  * { 
+    @apply p-0
+  }
+  * { 
+    @apply m-0
+  }
+}
