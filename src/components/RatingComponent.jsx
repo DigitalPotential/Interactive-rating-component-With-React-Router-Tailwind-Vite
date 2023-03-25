@@ -1,18 +1,21 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-
 export default function RatingComponent() {
-
   const [newNumber, setNumber] = useState("");
+  const [newColor, changeColor] = useState("")
   const navigate = useNavigate();
 
-  const Button = ({number}) => {
-      
+  const Button = ({ number }) => {
     return (
       <button
-        onClick={() => setNumber(number) }
-        className="font-medium font-overpass text-[1.2rem] leading-4 text-slate-200 bg-[#252d37] hover:bg-orange focus:bg-slate-400 w-[3.5rem] h-[3.5rem] rounded-full p-[0.4rem]">
+        onClick={() => {
+          setNumber(number)
+          changeColor("#B9B5B4")
+        }
+        }
+        style={{ backgroundColor: (number === newNumber) ? newColor : ""}}
+        className="font-medium font-overpass text-[1.2rem] leading-4 text-slate-200 bg-[#252d37] hover:bg-orange w-[3.5rem] h-[3.5rem] rounded-full p-[0.4rem]">
         {number}
       </button>
     );
@@ -22,7 +25,6 @@ export default function RatingComponent() {
     event.preventDefault();
     navigate("/ThankYouComponent", { state: { newNumber } });
   };
-  
   return (
     <div className="RatingComponent flex flex-col p-10 rounded-sm">
       <div className="Star-wrapper w-[3.5rem] h-[3.5rem] rounded-full p-[0.5rem] mb-11 bg-[#252d37] flex items-center justify-center">
@@ -51,7 +53,6 @@ export default function RatingComponent() {
           </li>
           <li className="rating-number">
             <Button number={5} />
-            
           </li>
         </ul>
       </div>

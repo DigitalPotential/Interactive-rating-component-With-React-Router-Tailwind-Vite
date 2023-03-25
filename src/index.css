@@ -22,3 +22,9 @@
     @apply m-0
   }
 }
+
+@layer components {
+  .fitta.focused {
+    background-color: red;
+  }
+}
